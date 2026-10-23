@@ -1,0 +1,26 @@
+@use "variables" as *;
+
+.btn {
+  border: none;
+  border-radius: 999px;
+  padding: 8px 16px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: opacity 0.2s;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.btn-primary {
+  background: $text;
+  color: #fff;
+}
+
+.btn-danger {
+  background: $white-soft;
+  color: $text;
+  padding: 4px 12px;
+  font-size: 12px;
+}

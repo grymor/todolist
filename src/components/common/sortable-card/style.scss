@@ -1,0 +1,17 @@
+@use "../../../styles/variables" as *;
+
+.card {
+  box-sizing: border-box;
+  padding: 20px 24px 24px;
+  border-radius: 40px;
+  background: $bg-card;
+  min-height: 260px;
+  display: flex;
+  flex-direction: column;
+
+  // діагональне чергування кольорів: 1 і 4 темніші
+  &:nth-child(4n + 1),
+  &:nth-child(4n + 4) {
+    background: $bg-card-dark;
+  }
+}
