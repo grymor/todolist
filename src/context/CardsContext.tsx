@@ -1,5 +1,4 @@
-import { createContext, useContext, useState, useEffect, type ReactNode } from "react";
-import type { Card, Task } from "../types";
+import { createContext, useContext, useState, type ReactNode } from "react";
 
 type CardsContextType = {
   isOpen: boolean;
