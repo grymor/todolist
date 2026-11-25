@@ -1,4 +1,6 @@
+import { useState } from "react";
 import type { Card } from "../../../types";
+import ConfirmModal from "./confirm-modal";
 import "./style.scss";
 
 type CardItemProps = {
@@ -11,6 +13,7 @@ type CardItemProps = {
 
 
 export default function CardItem({ card, onEdit, onDelete, onToggleTask }: CardItemProps) {
+  const [isConfirmOpen, setIsConfirmOpen] = useState(false);
   return (
     <>
       <div className="card-header">
@@ -21,11 +24,22 @@ export default function CardItem({ card, onEdit, onDelete, onToggleTask }: CardI
               </button>
 
               <button
-                onClick={() => onDelete(card.id)}
-                className="btn btn-danger"
+                onClick={() => setIsConfirmOpen(true)}
+                className="delete-card"
+                aria-label="Delete card"
+                type="button"
               >
-                Delete card
-              </button>
+                x
+        </button>
+        <ConfirmModal
+  isOpen={isConfirmOpen}
+  message={`Delete "${card.title}"?`}
+  onConfirm={() => {
+    onDelete(card.id);
+    setIsConfirmOpen(false);
+  }}
+  onCancel={() => setIsConfirmOpen(false)}
+/>
             </div>
             <div className="tasks">
               {card.tasks.map((task) => (

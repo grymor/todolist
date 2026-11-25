@@ -5,15 +5,24 @@ import "./styles/global.scss";
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { CardsProvider } from './context/CardsContext';
+import { BrowserRouter } from 'react-router-dom';
+import { UsersProvider } from './context/UsersContext';
+import { ReceiptsProvider } from './context/ReceiptsContext';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <CardsProvider>
-      <App />
+    <BrowserRouter>
+      <CardsProvider>
+        <UsersProvider>
+          <ReceiptsProvider>
+            <App />
+            </ReceiptsProvider>
+          </UsersProvider>
       </CardsProvider>
+      </BrowserRouter>
   </React.StrictMode>
 );
 

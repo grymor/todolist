@@ -1,8 +1,14 @@
-import React from 'react'
-import Home from '../Pages/Home'
+import { Outlet } from 'react-router-dom';
+import SideMenu from '../common/side-menu'
+import "./index.scss";
 
 export default function Layout() {
   return (
-    <Home />
+    <div className="layout">
+      <SideMenu />
+      <main className="layout-content">
+        <Outlet />
+      </main>
+    </div>
   )
 }

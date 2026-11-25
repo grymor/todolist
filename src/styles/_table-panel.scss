@@ -1,0 +1,124 @@
+@use "variables" as *;
+
+.table-panel {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 24px;
+  box-sizing: border-box;
+  border-radius: 28px;
+  background: $bg-card;
+  color: $text;
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+
+    h2 {
+      margin: 0;
+      font-size: 22px;
+      font-weight: 600;
+    }
+  }
+
+  &__badge {
+    padding: 4px 12px;
+    border-radius: 999px;
+    background: $bg-card-dark;
+    font-size: 13px;
+    font-weight: 600;
+  }
+
+  &__toolbar {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 20px;
+
+    input {
+      flex: 1;
+      min-width: 0;
+    }
+  }
+
+  // поля вводу: і в формі, і в рядку під час редагування
+  input[type="text"],
+  input[type="email"] {
+    box-sizing: border-box;
+    padding: 8px 14px;
+    border: none;
+    border-radius: 999px;
+    background: $white-soft;
+    color: $text;
+    font-size: 14px;
+    outline: none;
+
+    &::placeholder {
+      color: $muted;
+    }
+
+    &:focus {
+      box-shadow: 0 0 0 2px $text;
+    }
+  }
+
+  &__scroll {
+    overflow-x: auto;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+
+    th {
+      padding: 8px 12px;
+      text-align: left;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    td {
+      padding: 12px;
+      border-bottom: 2px solid #fff;   // лінії, як у твоїх завданнях
+      vertical-align: middle;
+
+      input {
+        width: 100%;
+      }
+    }
+
+    tbody tr:last-child td {
+      border-bottom: none;
+    }
+
+    th:last-child,
+    td:last-child {
+      text-align: right;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 6px;
+  }
+
+  &__action {
+    padding: 4px 12px;
+    border: none;
+    border-radius: 999px;
+    background: $white-soft;
+    color: $text;
+    font-size: 12px;
+    cursor: pointer;
+    transition: opacity 0.2s;
+
+    &:hover {
+      opacity: 0.8;
+    }
+
+    &--danger:hover {
+      color: $delete-hover;
+    }
+  }
+}

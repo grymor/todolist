@@ -1,0 +1,14 @@
+@use "../../../styles/variables" as *;
+
+.stat-card {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 20px 24px;
+  border-radius: 28px;
+  background: $bg-card-dark;
+
+  &__label { font-size: 14px; color: $muted; }
+  &__value { font-size: 36px; font-weight: 700; line-height: 1.1; }
+  &__hint  { font-size: 13px; }
+}
